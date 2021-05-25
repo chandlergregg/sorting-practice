@@ -1,3 +1,4 @@
+from mergesort import mergesort
 from random import seed, randint
 from quicksort import quicksort
 
@@ -29,9 +30,21 @@ if __name__ == "__main__":
     arrays = create_arrays(False)
     for array in arrays:
         
-        correct = sorted(array)
-        quicksort(array)
+        quicksort_arr = array
+        mergesort_arr = quicksort_arr
 
-        if correct == array:
-            print("Success!")
+        correct = sorted(array)
+        
+        quicksort(quicksort_arr)
+        mergesort(mergesort_arr)
+
+        if correct == quicksort_arr:
+            print("Quicksort success!")
+        else:
+            print("Quicksort error!")
+
+        if correct == mergesort_arr:
+            print("Mergesort success!")
+        else:
+            print("Mergesort error!")
 
